@@ -1,5 +1,2 @@
-com\home\dao\StuDao.class
-com\home\web\StuAction.class
 com\home\dao\BaseDao.class
-com\home\service\StuService.class
-com\home\entity\Stu.class
+com\home\utils\PageBean.class
