@@ -1,0 +1,35 @@
+/* it's a css file for index.jsp */
+
+#all_div{
+    margin:0px;
+    padding:0px;
+    width:100%;
+    height:100%;
+}
+
+#up_div{
+    width:100%;
+    height:20%;
+}
+
+#down_div{
+    width:100%;
+    height:80%;
+}
+
+#down_left_div{
+    width:20%;
+    height:100%;
+    float: left;
+    background-color: #2B99EA;
+}
+
+#down_right_div{
+    width:80%;
+    height:100%;
+    float: left;
+    background-color: aqua;
+}
+
+
+/*分页按钮的css*/
