@@ -1,5 +1,6 @@
 package com.home.dao;
 
+import com.home.entity.UserInfo;
 import com.home.entity.Users;
 
 /**
@@ -12,5 +13,8 @@ public interface UserDao {
     public Users findUserByNo(int user_no);
     //查询用户
     public Users findUserDoLogin(String hql);
+
+    //完善用户信息
+    public boolean doUserInfo(UserInfo userinfo);
 
 }

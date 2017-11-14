@@ -1,5 +1,6 @@
 package com.home.service;
 
+import com.home.entity.UserInfo;
 import com.home.entity.Users;
 
 /**
@@ -10,4 +11,6 @@ public interface UserService {
     public Users userDoLogin(Users user);
     //用户注册
     public Users addUser(Users user);
+    //完善用户的个人信息
+    public boolean doUserInfo(UserInfo userinfo,int user_no);
 }

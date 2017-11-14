@@ -13,7 +13,8 @@
 <body>
     <div>
         <h2>请完善个人信息</h2>
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="${pageContext.request.contextPath}/userAction/doInfo" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="user_no" value="${doinfouser.user_no}"/>
             姓名:<input name="userinfo_name"/><br/>
             年龄:<input name="userinfo_age"/><br/>
             性别:<input type="radio" name="userinfo_sex" value="男" checked/>男

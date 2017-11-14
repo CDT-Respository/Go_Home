@@ -2,6 +2,7 @@ package com.home.dao.impl;
 
 import com.home.dao.BaseDao;
 import com.home.dao.UserDao;
+import com.home.entity.UserInfo;
 import com.home.entity.Users;
 import org.springframework.stereotype.Repository;
 
@@ -27,5 +28,17 @@ public class UserDaoImpl extends BaseDao implements UserDao {
     @Override
     public Users findUserDoLogin(String hql) {
         return (Users) getSession().createQuery(hql).uniqueResult();
+    }
+
+    //完善个人信息
+    @Override
+    public boolean doUserInfo(UserInfo userinfo) {
+        try{
+            getSession().save(userinfo);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+            return false;
     }
 }

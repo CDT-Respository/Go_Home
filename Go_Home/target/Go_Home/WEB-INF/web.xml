@@ -45,7 +45,7 @@
 			<!--默认名称为ServletName-servlet.xml -->
 			<param-value>
 				/WEB-INF/springmvc-servlet.xml,
-				/WEB-INF/di.xml
+				/WEB-INF/applicationContext.xml
 			</param-value>
 		</init-param>
 	</servlet>

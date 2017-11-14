@@ -1,6 +1,7 @@
 package com.home.service.impl;
 
 import com.home.dao.UserDao;
+import com.home.entity.UserInfo;
 import com.home.entity.Users;
 import com.home.service.UserService;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,17 @@ public class UserServiceImpl implements UserService {
     //处理用户注册
     @Override
     public Users addUser(Users user) {
-        return null;
+        return userDao.addUser(user);
+    }
+
+    //完善用户个人信息的方法
+    @Override
+    public boolean doUserInfo(UserInfo userinfo, int user_no) {
+        //根据userno查询用户信息
+        Users user=userDao.findUserByNo(user_no);
+        //给信息绑定用户
+        userinfo.setUser_login(user);
+        return userDao.doUserInfo(userinfo);
     }
 
 

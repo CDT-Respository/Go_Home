@@ -12,7 +12,7 @@
 </head>
 <body>
     <input class="btn btn-Info" style="width:273px;" value="登录" type="button"/><br/>
-    <input class="btn btn-Info" style="width:273px;" value="注册" type="button"/><br/>
+    <input class="btn btn-Info" onclick="location.href='userDoRegist.jsp'" style="width:273px;" value="注册" type="button"/><br/>
     <input class="btn btn-Info" style="width:273px;" value="宝贝寻家" type="button"/><br/>
     <input class="btn btn-Info" style="width:273px;" value="家寻宝贝" type="button"/><br/>
     <input class="btn btn-Info" style="width:273px;"  value="发布信息" type="button"/><br/>
