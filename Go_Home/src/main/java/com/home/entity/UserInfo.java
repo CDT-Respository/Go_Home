@@ -109,8 +109,8 @@ public class UserInfo implements Serializable {
         this.userinfo_sex = userinfo_sex;
     }
 
-    @OneToOne(optional = false,cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "login_no",referencedColumnName = "user_no")
+    @OneToOne(optional = true,cascade = CascadeType.ALL)
+    @JoinColumn(name = "login_no")
     public Users getUser_login() {
         return user_login;
     }

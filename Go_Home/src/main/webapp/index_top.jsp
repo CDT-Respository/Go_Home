@@ -12,7 +12,7 @@
 </head>
     <style>
         body{
-            background: url(images/top.png) no-repeat;
+            background: url(images/toplogo.png) no-repeat;
             background-size:100% 20%;
         }
     </style>

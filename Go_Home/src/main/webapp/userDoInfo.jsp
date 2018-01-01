@@ -19,7 +19,7 @@
             年龄:<input name="userinfo_age"/><br/>
             性别:<input type="radio" name="userinfo_sex" value="男" checked/>男
                  <input type="radio" name="userinfo_sex" value="女"/>女<br/>
-            电话:<input name="userinfo_age"/><br/>
+            电话:<input name="userinfo_tel"/><br/>
             身份证号码:<input name="userinfo_code" /><br/>
             选择图片:<input type="file" name="imgfile"/><br/>
             详细住址:<input name="userinfo_address"/><br/>

@@ -3,7 +3,6 @@ package com.home.entity;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created by SChen on 2017/11/9.
@@ -23,8 +22,6 @@ public class Users implements Serializable {
     //用户--》用户信息
     private UserInfo user_info;
 
-    //用户--》用户发布的信息
-    private List<GoHomeInfo> gohomeinfoList;
 
     public Users() {
     }
@@ -61,7 +58,7 @@ public class Users implements Serializable {
         this.user_loginpwd = user_loginpwd;
     }
 
-    @OneToOne(optional = true,cascade = CascadeType.ALL,mappedBy = "user_login")
+    @OneToOne(optional = true,cascade = CascadeType.ALL,mappedBy = "user_login",fetch = FetchType.EAGER)
     public UserInfo getUser_info() {
         return user_info;
     }
@@ -70,13 +67,4 @@ public class Users implements Serializable {
         this.user_info = user_info;
     }
 
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="gohomeinfo_no")
-    public List<GoHomeInfo> getGohomeinfoList() {
-        return gohomeinfoList;
-    }
-
-    public void setGohomeinfoList(List<GoHomeInfo> gohomeinfoList) {
-        this.gohomeinfoList = gohomeinfoList;
-    }
 }

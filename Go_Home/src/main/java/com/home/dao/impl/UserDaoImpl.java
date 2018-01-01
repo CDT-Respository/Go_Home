@@ -30,7 +30,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
         return (Users) getSession().createQuery(hql).uniqueResult();
     }
 
-    //完善个人信息
+    //完善或修改个人信息
     @Override
     public boolean doUserInfo(UserInfo userinfo) {
         try{
@@ -40,5 +40,21 @@ public class UserDaoImpl extends BaseDao implements UserDao {
             e.printStackTrace();
         }
             return false;
+    }
+
+    @Override
+    public boolean updateUserInfo(UserInfo userinfo) {
+        try {
+            getSession().update(userinfo);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public UserInfo findUserInfoByUno(int user_no) {
+        return getSession().get(UserInfo.class,user_no);
     }
 }

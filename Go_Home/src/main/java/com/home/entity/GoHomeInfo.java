@@ -18,13 +18,16 @@ public class GoHomeInfo implements Serializable {
     private Date gohomeinfo_losstime;           //走失时间
     private String gohomeinfo_lossaddress;      //走失地点
     private String gohomeinfo_detailedinfo;     //详细描述
+    private String gohomeinfo_image;             //走失时相片
     private int gohomeinfo_type;                 //类型：1：宝贝寻家 2：家寻宝贝
-    private int gohomeinfo_status;               //状态：1：成功回家 2：还未找到
+    private int gohomeinfo_status=2;               //状态：1：成功回家 2：还未找到
+
+    private Users myuser;
 
     public GoHomeInfo() {
     }
 
-    public GoHomeInfo(int gohomeinfo_no, String gohomeinfo_name, String gohomeinfo_sex, String gohomeinfo_age, Date gohomeinfo_losstime, String gohomeinfo_lossaddress, String gohomeinfo_detailedinfo, int gohomeinfo_type, int gohomeinfo_status) {
+    public GoHomeInfo(int gohomeinfo_no, String gohomeinfo_name, String gohomeinfo_sex, String gohomeinfo_age, Date gohomeinfo_losstime, String gohomeinfo_lossaddress, String gohomeinfo_detailedinfo, String gohomeinfo_image, int gohomeinfo_type, int gohomeinfo_status) {
         this.gohomeinfo_no = gohomeinfo_no;
         this.gohomeinfo_name = gohomeinfo_name;
         this.gohomeinfo_sex = gohomeinfo_sex;
@@ -32,6 +35,7 @@ public class GoHomeInfo implements Serializable {
         this.gohomeinfo_losstime = gohomeinfo_losstime;
         this.gohomeinfo_lossaddress = gohomeinfo_lossaddress;
         this.gohomeinfo_detailedinfo = gohomeinfo_detailedinfo;
+        this.gohomeinfo_image = gohomeinfo_image;
         this.gohomeinfo_type = gohomeinfo_type;
         this.gohomeinfo_status = gohomeinfo_status;
     }
@@ -108,5 +112,22 @@ public class GoHomeInfo implements Serializable {
 
     public void setGohomeinfo_status(int gohomeinfo_status) {
         this.gohomeinfo_status = gohomeinfo_status;
+    }
+
+    public String getGohomeinfo_image() {
+        return gohomeinfo_image;
+    }
+
+    public void setGohomeinfo_image(String gohomeinfo_image) {
+        this.gohomeinfo_image = gohomeinfo_image;
+    }
+
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    public Users getMyuser() {
+        return myuser;
+    }
+
+    public void setMyuser(Users myuser) {
+        this.myuser = myuser;
     }
 }

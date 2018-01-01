@@ -16,5 +16,10 @@ public interface UserDao {
 
     //完善用户信息
     public boolean doUserInfo(UserInfo userinfo);
+    //用户修改个人信息
+    public boolean updateUserInfo(UserInfo userinfo);
+
+    //根据用户id查询对应的用户信息
+    public UserInfo findUserInfoByUno(int user_no);
 
 }

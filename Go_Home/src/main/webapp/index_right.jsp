@@ -6,27 +6,67 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" isELIgnored="false" language="java" %>
-<html>
-<head>
-    <title>Title</title>
     <script src="http://www.jq22.com/jquery/vue.min.js"></script>
     <style>
         #showdiv{
             width:900px;
             height:400px;
-            background-color: red;
+            background-color: #F2F2F2;
             position: absolute;
             left:350px;
             top:190px;
+            border-radius:5px;
         }
         #distpicker5{
             position: absolute;
             left:350px;
             top:140px;
         }
+        .myshowdiv{
+            width:270px;
+            height: 170px;
+            margin-top:18px;
+            margin-left: 23px;
+            background-color: green;
+            float: left;
+            border-radius:10px;
+        }
+        .gohomeinfo_img{
+            width:120px;
+            height:170px;
+            background-color: #0e0e0e;
+            border-right:1px;
+            float: left;
+            border-radius:10px 0 0 10px;
+        }
+        .gohomeinfo_name{
+            width:150px;
+            height:43px;
+            border-bottom: 1px;
+            float: left;
+        }
+        .gohomeinfo_info{
+            width:150px;
+            height:43px;
+            border-bottom: 1px;
+            float: left;
+        }
+        .gohomeinfo_age{
+            width:150px;
+            height:42px;
+            border-bottom: 1px;
+            float: left;
+        }
+        .gohomeinfo_address{
+            width:150px;
+            height:42px;
+            float: left;
+        }
+        .myshowimg{
+            width:120px;
+            height:170px;
+        }
     </style>
-</head>
-<body>
     <%--省市区三级联动查询信息--%>
     <form id="selectfrm" class="form-inline">
         <div id="distpicker5">
@@ -52,8 +92,9 @@
     <div id="showdiv">
 
     </div>
+    <div style="position: absolute;left:350px;top:600px;">
+        <button class="btn btn-Info" onclick="selectTo(1)">上一页</button>
+        <span id="showpage"></span>
+        <button class="btn btn-Info" onclick="selectTo(2)">下一页</button>
+    </div>
 
-
-    <%--分页按钮--%>
-</body>
-</html>

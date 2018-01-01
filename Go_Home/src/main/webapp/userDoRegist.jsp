@@ -23,7 +23,7 @@
         <form action="${pageContext.request.contextPath}/userAction/doRegist" method="post">
             用户名:<input name="user_loginname" value="${backUser.user_loginname}"><form:errors path="user.user_loginname" cssStyle="color:red;"/> <br/>
             密码:<input type="password" name="user_loginpwd" value="${backUser.user_loginpwd}"><form:errors path="user.user_loginpwd" cssStyle="color: red"/><br/>
-            重复密码:<input type="password" onblur="registPwd(this)"><br/>
+            重复密码:<input type="password" onchange="registPwd(this)"><br/>
             <input type="submit" value="注册"/>
         </form>
     </div>
