@@ -1,2 +1,15 @@
+com\home\entity\UserInfo.class
+com\home\web\UserAction.class
+com\home\service\impl\UserServiceImpl.class
+com\home\service\GoHomeInfoService.class
+com\home\service\UserService.class
+com\home\dao\impl\UserDaoImpl.class
+com\home\dao\impl\GoHomeInfoDaoImpl.class
+com\home\entity\Users.class
+com\home\web\GoHomeInfoAction.class
+com\home\entity\GoHomeInfo.class
+com\home\service\impl\GoHomeInfoServiceImpl.class
 com\home\dao\BaseDao.class
-com\home\utils\PageBean.class
+com\home\dao\GoHomeInfoDao.class
+com\home\entity\entity_android.class
+com\home\dao\UserDao.class

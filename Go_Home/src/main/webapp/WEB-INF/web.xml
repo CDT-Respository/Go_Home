@@ -4,6 +4,9 @@
 
 <web-app>
 	<display-name>springmvc_06</display-name>
+	<welcome-file-list>
+		<welcome-file>userDoLogin.jsp</welcome-file>
+	</welcome-file-list>
 
 	<!--配置Spring前端过滤器，处理中文乱码-->
 	<filter>
