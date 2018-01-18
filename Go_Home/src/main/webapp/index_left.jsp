@@ -82,5 +82,15 @@
             <%--});--%>
         <%--},"json");--%>
     <%--}--%>
+    function babyfindhome(){
+        infotype=1;
+        thispage=1;
+        findData();
+    }
 
+    function homefindbaby(){
+        infotype=2;
+        thispage=1;
+        findData();
+    }
 </script>

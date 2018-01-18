@@ -1,6 +1,7 @@
 package com.home.web;
 
 import com.home.entity.GoHomeInfo;
+import com.home.entity.entity_android;
 import com.home.service.GoHomeInfoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -84,6 +85,26 @@ public class GoHomeInfoAction {
     public String  toShowAllInfo(int info_user_no,int gohomeinfo_no,Model model){
         model.addAttribute("allInfo",goHomeInfoService.findGoHomeAllInfo(info_user_no,gohomeinfo_no));
         return "showGohomeAllInfo";
+    }
+
+    //返回给android一个对象
+    @RequestMapping("/toShowAllInfo_Android")
+    @ResponseBody
+    public entity_android toShowAllInfo_Android(int info_user_no, int gohomeinfo_no){
+        List list=goHomeInfoService.findGoHomeAllInfo(info_user_no,gohomeinfo_no);
+        Object[] obj=(Object[])list.get(0);
+        System.out.println(obj[1]);
+        entity_android androidentity = new entity_android();
+        androidentity.setGohomeinfo_name(obj[1].toString());
+        androidentity.setGohomeinfo_age(obj[5].toString());
+        androidentity.setGohomeinfo_sex(obj[6].toString());
+        androidentity.setGohomeinfo_detailedinfo(obj[2].toString());
+        androidentity.setGohomeinfo_image(obj[10].toString());
+        androidentity.setGohomeinfo_lossaddress(obj[3].toString());
+        androidentity.setGohomeinfo_losstime(obj[4].toString().substring(0,10));
+        androidentity.setUserinfo_name(obj[16].toString());
+        androidentity.setUserinfo_tel(obj[18].toString());
+        return androidentity;
     }
 
 

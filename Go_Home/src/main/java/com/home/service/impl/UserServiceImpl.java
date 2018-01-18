@@ -30,7 +30,6 @@ public class UserServiceImpl implements UserService {
         String hql="from Users u where u.user_loginname='"+user.getUser_loginname()+"' and u.user_loginpwd='"+user.getUser_loginpwd()+"'";
         //用户名密码是否正确
         user=userDao.findUserDoLogin(hql);
-        System.out.println(user.getUser_no()+","+user.getUser_loginname());
         //用户名密码正确，查询出对应的用户详细信息
         if(user!=null){
             map.put("user",user);

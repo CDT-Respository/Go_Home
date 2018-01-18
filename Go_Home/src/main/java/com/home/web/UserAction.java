@@ -42,7 +42,7 @@ public class UserAction {
                 System.out.println(err.getCode()+":"+err.getDefaultMessage());
             }
             model.addAttribute("backUser",user);
-            return "userDoRegist";
+            return "redirect:/userDoRegist.jsp?status=2";
         }else{//注册信息没错误，进行注册操作
             user=userService.addUser(user);
             if(user!=null){//注册成功，跳到完善信息页面
@@ -57,20 +57,23 @@ public class UserAction {
     //用户登录
     @RequestMapping("/doLogin")
     public String doLogin(Users user, HttpSession session,Model model){
-        Map map = userService.userDoLogin(user);
-        user= (Users) map.get("user");
-        int isDoInfo = (int) map.get("userIsDoInfo");
-        //如果用户不为空且不需要完善信息，直接去到主页
-        if(user!=null&&isDoInfo==1){
-            session.setAttribute("LoginUser",user);
-            return "redirect:/index.jsp";
-        }else if(user!=null&&isDoInfo==2){//登录成功，但是信息未完善
-            //去到完善信息页面
-            model.addAttribute("doinfouser",user);
-            return "forward:/userDoInfo.jsp";
-        }else{
-            return "redirect:/userDoLogin.jsp?status=0";
+        if(user!=null) {
+            Map map = userService.userDoLogin(user);
+            user = (Users) map.get("user");
+            int isDoInfo = (int) map.get("userIsDoInfo");
+            //如果用户不为空且不需要完善信息，直接去到主页
+            if (user != null && isDoInfo == 1) {
+                session.setAttribute("LoginUser", user);
+                return "redirect:/index.jsp";
+            } else if (user != null && isDoInfo == 2) {//登录成功，但是信息未完善
+                //去到完善信息页面
+                model.addAttribute("doinfouser", user);
+                return "forward:/userDoInfo.jsp";
+            } else {
+                return "redirect:/userDoLogin.jsp?status=0";
+            }
         }
+        return "redirect:/userDoLogin.jsp?status=0";
     }
 
     //用户完善个人信息

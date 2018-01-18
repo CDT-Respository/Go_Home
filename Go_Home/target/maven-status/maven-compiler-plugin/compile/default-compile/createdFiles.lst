@@ -11,4 +11,5 @@ com\home\entity\GoHomeInfo.class
 com\home\service\impl\GoHomeInfoServiceImpl.class
 com\home\dao\BaseDao.class
 com\home\dao\GoHomeInfoDao.class
+com\home\entity\entity_android.class
 com\home\dao\UserDao.class

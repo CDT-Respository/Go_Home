@@ -30,5 +30,4 @@ public class GoHomeInfoDaoImpl extends BaseDao implements GoHomeInfoDao {
     public List findAllGoHomeInfo(String sql) {
         return getSession().createSQLQuery(sql).list();
     }
-
 }

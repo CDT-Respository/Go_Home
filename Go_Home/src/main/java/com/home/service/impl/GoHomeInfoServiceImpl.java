@@ -42,7 +42,7 @@ public class GoHomeInfoServiceImpl implements GoHomeInfoService {
     @Override
     public List findGoHomeInfo(int thispage, String sheng, String shi, String qu,int thistype) {
         int start=thispage*6-6;
-        String sql="select g.gohomeinfo_image,g.gohomeinfo_name,g.gohomeinfo_age,g.gohomeinfo_lossaddress,u.user_no,g.gohomeinfo_no from tb_gohomeinfo g,tb_users u where g.myuser_user_no=u.user_no and g.gohomeinfo_type="+thistype+" limit "+start+",6";
+        String sql="select g.gohomeinfo_image,g.gohomeinfo_name,g.gohomeinfo_age,g.gohomeinfo_lossaddress,u.user_no,g.gohomeinfo_no,g.gohomeinfo_sex from tb_gohomeinfo g,tb_users u where g.myuser_user_no=u.user_no and g.gohomeinfo_type="+thistype+" limit "+start+",6";
         if(sheng!=null&&!sheng.equals("undefined")&&sheng.length()>0&&shi!=null&&!shi.equals("undefined")&&shi.length()>0&&qu!=null&&!qu.equals("undefined")&&qu.length()>0){
             sql="select g.gohomeinfo_image,g.gohomeinfo_name,g.gohomeinfo_age,g.gohomeinfo_lossaddress,u.user_no,g.gohomeinfo_no from " +
                     "tb_gohomeinfo g,tb_users u where g.myuser_user_no=u.user_no and g.gohomeinfo_type="+thistype+" and (g.gohomeinfo_lossaddress like '%"+sheng+"%' " +
@@ -50,12 +50,12 @@ public class GoHomeInfoServiceImpl implements GoHomeInfoService {
                     "or g.gohomeinfo_lossaddress like '%"+qu+"%') " +
                     "  limit "+start+",6";
         }else if(sheng!=null&&!sheng.equals("undefined")&&sheng.length()>0&&shi!=null&&!shi.equals("undefined")&&shi.length()>0){
-            sql="select g.gohomeinfo_image,g.gohomeinfo_name,g.gohomeinfo_age,g.gohomeinfo_lossaddress,u.user_no,g.gohomeinfo_no from " +
+            sql="select g.gohomeinfo_image,g.gohomeinfo_name,g.gohomeinfo_age,g.gohomeinfo_lossaddress,u.user_no,g.gohomeinfo_no,g.gohomeinfo_sex from " +
                     "tb_gohomeinfo g,tb_users u where (g.myuser_user_no=u.user_no and g.gohomeinfo_type="+thistype+" and (g.gohomeinfo_lossaddress like '%"+sheng+"%')) " +
                     "or (g.myuser_user_no=u.user_no and g.gohomeinfo_type="+thistype+" and (g.gohomeinfo_lossaddress like '%"+shi+"%')) " +
                     "  limit "+start+",6";
         }else if(sheng!=null&&!sheng.equals("undefined")&&sheng.length()>0){
-            sql="select g.gohomeinfo_image,g.gohomeinfo_name,g.gohomeinfo_age,g.gohomeinfo_lossaddress,u.user_no,g.gohomeinfo_no from " +
+            sql="select g.gohomeinfo_image,g.gohomeinfo_name,g.gohomeinfo_age,g.gohomeinfo_lossaddress,u.user_no,g.gohomeinfo_no,g.gohomeinfo_sex from " +
                     "tb_gohomeinfo g,tb_users u where (g.myuser_user_no=u.user_no and g.gohomeinfo_type="+thistype+" and (g.gohomeinfo_lossaddress like '%"+sheng+"%')) " +
                     "  limit "+start+",6";
         }
@@ -81,7 +81,7 @@ public class GoHomeInfoServiceImpl implements GoHomeInfoService {
 
     @Override
     public List findGoHomeAllInfo(int info_user_no, int gohomeinfo_no) {
-        String sql="select * from tb_gohomeinfo g,tb_userinfo u where g.myuser_user_no=u.login_no="+info_user_no+" and g.gohomeinfo_no="+gohomeinfo_no;
+        String sql="select * from tb_gohomeinfo g,tb_userinfo u where u.login_no="+info_user_no+" and g.gohomeinfo_no="+gohomeinfo_no;
         return goHomeInfoDao.findAllGoHomeInfo(sql);
     }
 

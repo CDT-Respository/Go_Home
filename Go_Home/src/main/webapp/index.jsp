@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" isELIgnored="false" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>indexpage</title>
     <link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
     <link href="${pageContext.request.contextPath}/css/index.css" rel="stylesheet">
@@ -21,6 +21,7 @@
 </head>
 <body>
 <div id="all_div">
+    <input type="hidden" value="${sessionScope.LoginUser.user_no}"/>
         <div id="up_div">
             <jsp:include page="index_top.jsp"></jsp:include>
         </div>
@@ -94,7 +95,7 @@
             if(allpages==0){
                 $("#showdiv").text("没有搜索到信息").css({"font-size":"50px","text-align":"center"});
             }else{
-                $("#showdiv").text("").css({"font-size":"20px","text-align":"center"});
+                $("#showdiv").text("").css({"font-size":"16px","text-align":"center"});
             }
         });
         //查询出所有数据
@@ -104,24 +105,24 @@
             $.each(data,function(i,v){
                 var mydiv="<div class='myshowdiv'>";
                 mydiv+="<div class='gohomeinfo_img'><img class='myshowimg' src='${pageContext.request.contextPath}/"+v[0]+"'></div>";
-                mydiv+="<div class='gohomeinfo_name'>"+v[1]+"</div>";
-                mydiv+="<div class='gohomeinfo_age'>"+v[2]+"</div>";
-                mydiv+="<div class='gohomeinfo_address'>"+v[3]+"</div>";
+                mydiv+="<div class='gohomeinfo_name'>姓名:"+v[1]+"</div>";
+                mydiv+="<div class='gohomeinfo_age'>年龄:"+v[2]+"</div>";
+                mydiv+="<div class='gohomeinfo_address'>失踪地点:"+v[3]+"</div>";
                 mydiv+="<div class='gohomeinfo_info'><a href='${pageContext.request.contextPath}/goHomeInfoAction/toShowAllInfo?info_user_no="+v[4]+"&gohomeinfo_no="+v[5]+"'>详情</a></div>";
                 mydiv+="</div>";
                 $("#showdiv").append(mydiv);
             });
         },"json");
     }
-    function babyfindhome(){
-        infotype=1;
-        findData();
-    }
-
-    function homefindbaby(){
-        infotype=2;
-        findData();
-    }
+//    function babyfindhome(){
+//        infotype=1;
+//        findData();
+//    }
+//
+//    function homefindbaby(){
+//        infotype=2;
+//        findData();
+//    }
 
     window.onload=loaddata();
 </script>
